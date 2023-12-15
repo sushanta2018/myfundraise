@@ -18,18 +18,18 @@ function LanguageSwitcher() {
     <Listbox value={locale} onChange={changeLanguage}>
       {({ open }) => (
         <>
-          <div className="relative mt-4">
-            <Listbox.Button className="py-2 px-3 border border-gray-300 rounded-md shadow-sm bg-white text-gray-900 cursor-pointer focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-              {languages.find((lang) => lang.id === locale)?.name}
+          <div className="relative mt-[12px]">
+            <Listbox.Button className="py-[6px] px-[10px] flex items-center justify-between border border-gray-300 rounded-md bg-white text-gray-900 cursor-pointer text-[14px] leading-[18px]">
+              {languages.find((lang) => lang.id === locale)?.name} <img alt="arrow-down" src="/images/arrow-down.png" className="w-[18px] h-[18px] relative left-[2px]" />
             </Listbox.Button>
-            <Listbox.Options className="absolute w-40 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <Listbox.Options className="absolute w-40 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden">
               {languages.map((lang) => (
                 <Listbox.Option key={lang.id} value={lang}>
                   {({ active, selected }) => (
                     <div
                       className={`${
-                        active ? "text-white bg-indigo-600" : "text-gray-900"
-                      } cursor-pointer select-none relative px-4 py-2`}
+                        active ? "text-white bg-ternary" : "text-secondary"
+                      } cursor-pointer select-none relative px-[10px] py-[6px]`}
                     >
                       {selected ? (
                         <span
@@ -52,7 +52,7 @@ function LanguageSwitcher() {
                           </svg>
                         </span>
                       ) : null}
-                      {lang.name}
+                      <p className="block text-[14px] leading-[20px] m-[0px]">{lang.name}</p>
                     </div>
                   )}
                 </Listbox.Option>
